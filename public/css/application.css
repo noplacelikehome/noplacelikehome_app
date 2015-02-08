@@ -1,3 +1,29 @@
+body {
+  color: #FFF;
+}
+
+h2, h3, h4, h5 {
+  line-height: 77px;
+/* Facing a buy-out? Le: */
+text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+    
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+    
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 #map {
   height: 100%;
   width: 100%;
@@ -7,6 +33,13 @@
   z-index: 0;
 }
 
+.map-link {
+  top: -6px;
+  left: 10px;
+  position: relative;
+}
+
+
 .back {
   position: absolute;
   top: 10px;
@@ -15,20 +48,59 @@
   z-index: 5 !important;
 }
 
+
+h2 {
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
 h3, h4 {
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
+  margin-bottom: 30px;
 }
 
 .center {
   text-align: center;
   margin: 0 auto;
+  width: 95%;
+}
+
+.wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+.logo {
+  width: 100%;
+  background-color: #FFF;
 }
 
 .logo img {
   max-width:40%;
   margin-left: 2.5%;
   margin-top: 10px;
+}
+
+.sapUiBtnS {
+  height: 40px !important;
+}
+
+.btn-info {
+  color: white;
+  display: block;
+  /*margin: 0 auto !important;*/
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+}
+input {
+  color: #000;
+}
+
+td {
+  font-size: .75em !important;
 }
 
 @media (min-width: 400px) {
