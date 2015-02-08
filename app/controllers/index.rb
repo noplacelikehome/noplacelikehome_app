@@ -9,7 +9,6 @@ get '/map' do
     {
       "type": "Feature",
       "FeatureCollection": []
-
      }
   ]
   offers = Offer.all
@@ -17,13 +16,13 @@ get '/map' do
     full_address = "#{offer.street_address}, #{offer.city}, #{offer.state}"
     coordinates = Geocoder.coordinates(full_address)
       geoJSON = {
-         "type": "Feature",
-         "geometry": {
-             "type": "point",
-             "coordinates": coordinates
+         "type" => "Feature",
+         "geometry" => {
+             "type" => "point",
+             "coordinates" => coordinates
           },
-          "properties": {
-                "address": full_address
+          "properties" => {
+                "address" => full_address
           }
       }
       p @mapData
