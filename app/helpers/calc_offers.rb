@@ -5,7 +5,7 @@
 
 helpers do
   def calculate_market_rate_difference(monthly_market_value, current_monthly_rent)
-    return (monthly_market_value-current_monthly_rent)*24
+    return monthly_market_value-current_monthly_rent*24
     # ordinance requires that a landlord pays the difference between two years of rent on current market rate in an Ellis
   end
 
@@ -71,4 +71,8 @@ helpers do
     return offer_price - (total_taxes*offer_price)
   end
 
+  def calculate_difference_in_months(total_after_taxes, monthly_market_value, current_monthly_rent)
+    rent_difference = monthly_market_value -  current_monthly_rent
+    total_after_taxes/rent_difference
+  end
 end

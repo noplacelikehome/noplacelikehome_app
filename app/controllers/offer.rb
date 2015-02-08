@@ -10,10 +10,6 @@ get '/offer' do
   calculate_high_offer(address_data[:total_market_value]) }.to_json
 end
 
-get '/tax' do
-  calculate_total_after_taxes(25_000, 150_000).to_s
-end
-
 post '/occupants' do
   offer= Offer.find(session[:offer_id])
   # offer.update_attributes(children: false)
@@ -55,4 +51,10 @@ end
 get '/api/display_buyout_analysis' do
   @offer = Offer.find(session[:id])
   # then pass the offer complete details to render in the graphical analysis
+end
+
+get '/tax' do
+  total_after_taxes = calculate_total_after_taxes(25_000, 150_000)
+  # calculate_difference_in_months(total_after_taxes, address_data[:monthly_market_value]).to_s
+  calculate_difference_in_months(total_after_taxes, 4567, 2500).to_s
 end

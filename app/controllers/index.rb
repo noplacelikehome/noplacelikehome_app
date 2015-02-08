@@ -7,8 +7,8 @@ end
 get '/map' do
   @mapData = [
     {
-      "type": "Feature",
-      "FeatureCollection": []
+      "type" => "Feature",
+      "FeatureCollection" => []
      }
   ]
   offers = Offer.all
