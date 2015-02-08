@@ -2,7 +2,10 @@
 <html ng-app="noPlaceLikeHome">
   <head>
     <title>No Place Like Home</title>
-    <link href="/css/normalize.css" type="text/css" rel="stylesheet">
+    <link href="css/normalize.css" type="text/css" rel="stylesheet">
+    <link href="css/skeleton.css" type="text/css" rel="stylesheet">
+    <link href="css/application.css" type="text/css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:800,400' rel='stylesheet' type='text/css'>
     <script src="lib/jquery/jquery-1.10.2.min.js"></script>
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular/angular-route.min.js"></script>
@@ -25,7 +28,10 @@
 </script> -->
   </head>
   <body>
-    <h1>No Place Like Home</h1>
+    <header>
+      <div class="logo">
+        <img src="imgs/logo.png" />
+      </div>
     <div ng-view></div>
   </body>
 </html>
