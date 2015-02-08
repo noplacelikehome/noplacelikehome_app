@@ -16,4 +16,41 @@
 
 <body class='sapUiBody'>
     <div id='content'></div>
+
+    <mvc:View
+      xmlns:l="sap.ui.layout"
+      xmlns:mvc="sap.ui.core.mvc"
+      xmlns="sap.m">
+      <VBox
+        class="marginBoxContent" >
+        <items>
+
+        <h4>Buyout Offer</h4>
+          <Label text="Buyout Offer" />
+          <Input
+            type="Number"
+            placeholder="Please enter your buyout offer price ..." />
+
+        <br>
+        <h4>Number of Bedrooms</h4>
+          <Label text="Number of Bedrooms" />
+          <Input
+            type="Number"
+            placeholder="No. of Bedrooms" />
+        <br>
+        <h4>Street Address</h4>
+          <Label text="Street Address" />
+          <Input
+            type="Text"
+            placeholder="Ex. 2412 Folsom St" />
+        <br>
+        <h4>Zip Code</h4>
+          <Label text="Zip Code" />
+          <Input
+            type="Number"
+            placeholder="Ex. 94110" />
+
+        </items>
+      </VBox>
+    </mvc:View>
 </body>
