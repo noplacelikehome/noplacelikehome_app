@@ -9,7 +9,7 @@ var noPlaceLikeHome = angular.module("noPlaceLikeHome", [
 noPlaceLikeHome.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise("/form/address");
   //
   // Now set up the states
   $stateProvider
