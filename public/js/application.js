@@ -24,8 +24,6 @@ var setupMarkersInfo = function(offer) {
 
 }
 
-
-
 L.mapbox.accessToken = 'pk.eyJ1IjoibGlvcnJtIiwiYSI6InkzM2lOT2sifQ.rKc_Jo2tLLU7vy23ltzAuA';
 
 

@@ -6,6 +6,15 @@
   bottom: 0;
   z-index: 0;
 }
+
+.back {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5em;
+  z-index: 5 !important;
+}
+
 h3, h4 {
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
