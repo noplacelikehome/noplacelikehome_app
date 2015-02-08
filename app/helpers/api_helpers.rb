@@ -1,5 +1,6 @@
 require 'httparty'
 require 'uri'
+require 'pp'
 
 helpers do
   def get_zillow_address_data(address, zipcode)
@@ -8,7 +9,8 @@ helpers do
     result = response["searchresults"]["response"]["results"]["result"][0]
     monthly_market_value = result["rentzestimate"]["amount"]["__content__"]
     total_market_value = result["zestimate"]["amount"]["__content__"]
-    return { monthly_market_value: monthly_market_value.to_i, total_market_value: total_market_value.to_i }
+    pp result["bedrooms"]
+    return { monthly_market_value: monthly_market_value.to_i, total_market_value: total_market_value.to_i, bedrooms: result["bedrooms"].to_i}
   end
 
   def to_boolean(string)

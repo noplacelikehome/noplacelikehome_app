@@ -1,11 +1,11 @@
 # Input: offer price for the property, median house value based on that location, current monthly price for the location
 #   -> requires API call to the Zillow API.
-# Output: 
-# 
+# Output:
+#
 
 helpers do
   def calculate_market_rate_difference(monthly_market_value, current_monthly_rent)
-    return monthly_market_value-current_monthly_rent*24
+    return (monthly_market_value - current_monthly_rent)*24
     # ordinance requires that a landlord pays the difference between two years of rent on current market rate in an Ellis
   end
 

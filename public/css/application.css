@@ -1,7 +1,52 @@
 #map {
+  height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
   z-index: 0;
 }
+h3, h4 {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logo img {
+  max-width:40%;
+  margin-left: 2.5%;
+  margin-top: 10px;
+}
+
+@media (min-width: 400px) {
+    .logo img {
+    max-width: 150px;
+    margin-left: 2.5%;
+    margin-top: 10px;
+  }
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+  .logo img {
+    max-width: 200px;
+    margin-left: 2.5%;
+    margin-top: 10px;
+  }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+  .logo img {
+    max-width: 250px;
+    margin-left: 2.5%;
+    margin-top: 10px;
+  }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
