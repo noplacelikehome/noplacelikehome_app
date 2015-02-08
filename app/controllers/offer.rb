@@ -2,20 +2,33 @@ post '/api/offer' do
   new_offer = Offer.create(price: params[:offer_price].to_i, street_address: params[:street_address], zip: params[:zip].to_i, bedrooms: params[:bedrooms].to_i)
   session[:id] = new_offer.id
   address_data = get_zillow_address_data(params[:street_address], params[:zip])
-  args = { offer_price: params[:offer_price],
+  args = { offer_price: params[:offer_price].to_i,
            monthly_market_value: address_data[:monthly_market_value],
-           current_monthly_rent: params[:current_monthly_rent] } #mmv comes from zillow, cmr & op from user
-  total_after_taxes = calculate_total_after_taxes(params[:offer_price], params[:yearly_income])
-  difference_in_months = calculate_difference_in_months(total_after_taxes, address_data[:monthly_market_value], params[:current_monthly_rent]).to_s
+           current_monthly_rent: params[:current_monthly_rent].to_i } #mmv comes from zillow, cmr & op from user
+  total_after_taxes = calculate_total_after_taxes(params[:offer_price].to_i, params[:yearly_income].to_i)
+  difference_in_months = calculate_difference_in_months(total_after_taxes, address_data[:monthly_market_value], params[:current_monthly_rent].to_i).to_s
   content_type :json
   { low_offer: calculate_low_offer(args), high_offer:
-  calculate_high_offer(address_data[:total_market_value]), difference_in_months: difference_in_months }.to_json
+  calculate_high_offer(address_data[:total_market_value]), total_after_taxes: total_after_taxes, difference_in_months: difference_in_months }.to_json
 end
 
-# get '/address_data' do
-#   content_type :json
-#   get_zillow_address_data("725 Leavenworth", "94110").to_json
-# end
+get '/address_data' do
+  content_type :json
+  get_zillow_address_data("725 Leavenworth", "94110").to_json
+end
+
+#test route - can use params ?offer_price=25000&yearly_income=40000&current_monthly_rent=1000
+get '/taxes' do
+  content_type :json
+  total_after_taxes = calculate_total_after_taxes(params[:offer_price].to_i, params[:yearly_income].to_i)
+  address_data = get_zillow_address_data("725 Leavenworth", "94110")
+  diff_in_months = calculate_difference_in_months(total_after_taxes, address_data[:monthly_market_value], params[:current_monthly_rent].to_i).to_s
+  # address_data.to_json
+  # calculate_high_offer(address_data[:total_market_value]).to_json
+  # total_after_taxes.to_json
+  diff_in_months.to_json
+end
+
 
 # first page questionaire
 get '/api/get_eviction_status' do
