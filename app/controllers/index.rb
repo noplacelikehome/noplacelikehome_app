@@ -24,7 +24,9 @@ get '/map' do
              "coordinates" => new_coordinates
           },
           "properties" => {
-                "address" => full_address
+                "address" => full_address,
+                "price" => offer.price,
+                "bedrooms" => offer.bedrooms
           }
       }
       @mapData[0]["features"].push(geoJSON)
