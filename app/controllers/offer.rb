@@ -14,7 +14,7 @@ post '/api/offer' do
   difference_in_months = calculate_difference_in_months(total_after_taxes, address_data[:monthly_market_value], params["current_monthly_rent"].to_i).to_s
   content_type :json
   { low_offer: calculate_low_offer(args), high_offer:
-  calculate_high_offer(address_data[:total_market_value]), total_after_taxes: total_after_taxes, difference_in_months: difference_in_months }.to_json
+  calculate_high_offer(address_data[:total_market_value]), total_after_taxes: total_after_taxes, difference_in_months: difference_in_months.to_i }.to_json
 end
 # number of bedrooms can come from zillow
 

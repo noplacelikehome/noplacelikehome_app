@@ -1,12 +1,36 @@
-<div>
-  <p> low offer: {{recommendedOffer.low_offer}} highoffer: {{recommendedOffer.high_offer}} totalafter: {{recommendedOffer.total_after_taxes}}, difference_in_months: {{recommendedOffer.difference_in_months}} </p>
-  <h1> offer </h1>
+<div class="center">
+  <h3>Based on your info, you can ask for:</h3>
+  <table>
+    <tr>
+      <th></th>
+      <th>At least: {{recommendedOffer.low_offer | currency}}</th>
+      <th>Up to: {{recommendedOffer.high_offer | currency}}</th>
+    </tr>
+    <tr>
+      <td>About this price:</td>
+      <td>Based on the latest Ellis Act legislation,
+you must be paid the difference between
+your current rent and the going rate for a
+similar unit for 2 years.</td>
+      <td>This is what the landlord would
+likely be willing to pay, given the
+overall value of the building.</td>
+    </tr>
+  </table>
+</div>
+<div class="wrapper">
+<h6>What you would get after taxes with the original offer: <strong>{{recommendedOffer.total_after_taxes |currency}}</strong></h6>
+<h6># months you can afford at a similar home with the original offer: <strong>{{recommendedOffer.difference_in_months}}</strong></h6>
+</div>
+
+  <!-- <p> low offer:  highoffer: {{recommendedOffer.high_offer}} totalafter: {{recommendedOffer.total_after_taxes}}, difference_in_months: {{recommendedOffer.difference_in_months}} </p> -->
+  <!-- <h1> offer </h1> -->
 
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="form.eviction" class="btn btn-block btn-info">
-    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    <!-- <a ui-sref="form.eviction" class="btn btn-block btn-info"> -->
+    <!-- Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span> -->
     </a>
 </div>
 </div>
