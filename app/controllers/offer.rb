@@ -1,7 +1,7 @@
-get '/api/offer' do
-  new_offer = Offer.create(price: params[:offer_price].to_i, street_address: params[:street_address], zip: params[:zip].to_i, bedrooms: params[:bedrooms].to_i)
-  session[:id] = new_offer.id
+post '/api/offer' do
   address_data = get_zillow_address_data(params[:street_address], params[:zip])
+  new_offer = Offer.create(price: params[:offer_price].to_i, street_address: params[:street_address], zip: params[:zip].to_i, bedrooms: address_data[:bedrooms])
+  session[:id] = new_offer.id
   args = { offer_price: params[:offer_price].to_i,
            monthly_market_value: address_data[:monthly_market_value],
            current_monthly_rent: params[:current_monthly_rent].to_i } #mmv comes from zillow, cmr & op from user
@@ -11,6 +11,7 @@ get '/api/offer' do
   { low_offer: calculate_low_offer(args), high_offer:
   calculate_high_offer(address_data[:total_market_value]), total_after_taxes: total_after_taxes, difference_in_months: difference_in_months }.to_json
 end
+# number of bedrooms can come from zillow
 
 get '/address_data' do
   content_type :json
@@ -31,7 +32,7 @@ end
 
 
 # first page questionaire
-get '/api/get_eviction_status' do
+post '/api/get_eviction_status' do
   offer = Offer.find(session[:id])
   update_offer = offer.update_attribute(fear_eviction: to_boolean(params[:eviction]))
   if update_offer.fear_eviction
@@ -41,13 +42,13 @@ get '/api/get_eviction_status' do
   end
 end
 
-get '/api/get_eviction_info' do
+post '/api/get_eviction_info' do
   offer = Offer.find(session[:id])
   update_offer = offer.update_attributes(has_children: to_boolean(params[:children]), disabled: to_boolean(params[:disabled]), has_elderly: to_boolean(params[:elderly]))
   redirect "/api/display_buyout_analysis"
 end
 
-get '/api/display_buyout_analysis' do
+post '/api/display_buyout_analysis' do
   @offer = Offer.find(session[:id])
   # then pass the offer complete details to render in the graphical analysis
 end
