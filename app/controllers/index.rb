@@ -1,8 +1,5 @@
 require "geocoder"
 
-get '/' do
-  "hey"
-end
 
 get '/map' do
   @mapData = [
