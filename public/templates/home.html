@@ -1,4 +1,19 @@
 <div>
-  <h2>home page </h2>
-  <button ng-click="click()">click</button>
+  <h2>Facing a buy-out? Let's make sure you get what you deserve</h2>
+  <!-- <button ng-click="click()">click</button> -->
 </div>
+ <script>
+    var btn = new sap.ui.commons.Button({
+        text:'Help me calculate the best offer',
+        press: function() {
+            alert("Hello!")
+        }
+    });
+    btn.placeAt('content');
+</script>
+
+
+
+<body class='sapUiBody'>
+    <div id='content'></div>
+</body>
