@@ -10,7 +10,8 @@ noPlaceLikeHome.controller("FormController", ["$scope", "$http", "$timeout",
     $scope.submitAddressInfo = function(formData){
 
       $http.post('/api/offer', formData).success(function(response){
-
+        console.log(response);
+        $scope.recommendedOffer = response;
       })
 
     }
