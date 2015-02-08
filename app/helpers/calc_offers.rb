@@ -17,8 +17,9 @@ helpers do
     return compensation_required
   end
 
-  def calculate_high_offer
-
+  def calculate_high_offer(total_market_value)
+    return total_market_value*0.1394
+    # According to http://priceonomics.com/how-much-should-a-landlord-pay-a-tenant-to-move/, a landlord misses out on 13.94% of a rental unit's value if it is occupied by tenants, not factoring in market value
   end
 
 
