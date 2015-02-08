@@ -28,14 +28,14 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibGlvcnJtIiwiYSI6InkzM2lOT2sifQ.rKc_Jo2tLLU7vy
 
 
 var map = L.mapbox.map('map', 'liorrm.l5fek6l3', { zoomControl: false,
- maxZoom: 19,
- minZoom: 2,
- worldCopyJump: true
+  center: [37.77, -122.4167],
+  zoom: 14,
+  maxZoom: 19,
+  minZoom: 2,
+  worldCopyJump: true
 });
 
 console.log("this is map!", map)
-
-map.setView;
 
 var locations = L.mapbox.featureLayer().addTo(map);
 console.log("this is locations", locations)
