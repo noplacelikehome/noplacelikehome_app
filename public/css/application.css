@@ -33,6 +33,12 @@ img.bg {
   z-index: 0;
 }
 
+.map-link {
+  top: -6px;
+  left: 10px;
+  position: relative;
+}
+
 
 .back {
   position: absolute;
