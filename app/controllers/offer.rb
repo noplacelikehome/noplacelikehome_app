@@ -52,3 +52,9 @@ get '/api/display_buyout_analysis' do
   @offer = Offer.find(session[:id])
   # then pass the offer complete details to render in the graphical analysis
 end
+
+get '/tax' do
+  total_after_taxes = calculate_total_after_taxes(25_000, 150_000)
+  # calculate_difference_in_months(total_after_taxes, address_data[:monthly_market_value]).to_s
+  calculate_difference_in_months(total_after_taxes, 4567, 2500).to_s
+end
