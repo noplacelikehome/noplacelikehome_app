@@ -10,7 +10,7 @@ get '/map' do
   ]
   offers = Offer.all
   offers.each do |offer|
-    full_address = "#{offer.street_address}, #{offer.city}, #{offer.state}"
+    full_address = "#{offer.street_address}, San Francisco, CA"
     coordinates = Geocoder.coordinates(full_address)
     long = coordinates[0]
     lat = coordinates[1]

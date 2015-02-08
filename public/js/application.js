@@ -7,7 +7,7 @@ var setupMarkersInfo = function(offer) {
 
    popup += '<h4>Address: ' + prop.address + '</h4>';
 
-   popup += '<p>Bedrooms: ' + prop.bedrooms + '</p>';
+   // popup += '<p>Bedrooms: ' + prop.bedrooms + '</p>';
 
   offer.bindPopup(popup);
 
