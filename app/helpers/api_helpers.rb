@@ -11,4 +11,8 @@ helpers do
     return { monthly_market_value: monthly_market_value.to_i, total_market_value: total_market_value.to_i }
   end
 
+  def to_boolean(string)
+    string == 'true'
+  end
+
 end

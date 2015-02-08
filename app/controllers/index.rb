@@ -7,9 +7,8 @@ end
 get '/map' do
   @mapData = [
     {
-      "type" => "Feature",
-      "features" => []
-
+      "type": "Feature",
+      "FeatureCollection": []
      }
   ]
   offers = Offer.all
@@ -28,8 +27,8 @@ get '/map' do
       }
       p @mapData
       p @mapData[0]
-      p @mapData[0][:features]
-      @mapData[0][:features].push(geoJSON)
+      p @mapData[0][:FeatureCollection]
+      @mapData[0][:FeatureCollection].push(geoJSON)
   end
   erb :index
 end
