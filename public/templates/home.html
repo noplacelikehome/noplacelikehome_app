@@ -3,19 +3,6 @@
   <h2>Facing a buy-out?</h2>
   <h4>Let's make sure you get what you deserve</h4>
   <!-- <button ng-click="click()">click</button> -->
-
- <script>
-    var btn = new sap.ui.commons.Button({
-        text:'Help me calculate the best offer',
-        press: function() {
-            window.location.href = "http://localhost:9393/#/form/address";
-        }
-    });
-    btn.placeAt('content');
-</script>
-
-
-
 <body class='sapUiBody'>
     <div id='content'></div>
 
@@ -27,30 +14,15 @@
         class="marginBoxContent" >
         <items>
 
-        <h4>Buyout Offer</h4>
-          <Label text="Buyout Offer" />
-          <Input
-            type="Number"
-            placeholder="Please enter your buyout offer price ..." />
-
-        <br>
-        <h4>Number of Bedrooms</h4>
-          <Label text="Number of Bedrooms" />
-          <Input
-            type="Number"
-            placeholder="No. of Bedrooms" />
-        <br>
-        <h4>Street Address</h4>
-          <Label text="Street Address" />
-          <Input
-            type="Text"
-            placeholder="Ex. 2412 Folsom St" />
-        <br>
-        <h4>Zip Code</h4>
-          <Label text="Zip Code" />
-          <Input
-            type="Number"
-            placeholder="Ex. 94110" />
+ <script>
+    var btn = new sap.ui.commons.Button({
+        text:'Help me calculate the best offer',
+        press: function() {
+            window.location.href = "http://localhost:9393/#/form/address";
+        }
+    });
+    btn.placeAt('content');
+</script>
 
         </items>
       </VBox>
