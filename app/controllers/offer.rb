@@ -1,4 +1,4 @@
-get '/api/offer' do
+post '/api/offer' do
   new_offer = Offer.create(price: params[:offer_price].to_i, street_address: params[:street_address], zip: params[:zip].to_i, bedrooms: params[:bedrooms].to_i)
   session[:id] = new_offer.id
   address_data = get_zillow_address_data(params[:street_address], params[:zip])

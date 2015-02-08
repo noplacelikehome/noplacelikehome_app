@@ -2,11 +2,17 @@
 
 var appControllers = angular.module("appControllers", []);
 
-noPlaceLikeHome.controller("HomeController", ["$scope", "$http", "$timeout",
+noPlaceLikeHome.controller("FormController", ["$scope", "$http", "$timeout",
   function($scope, $http, $timeout){
 
-    $scope.click = function(){
-      console.log("clicked")
+    $scope.formData = {}
+
+    $scope.submitAddressInfo = function(formData){
+
+      $http.post('/api/offer', formData).success(function(response){
+
+      })
+
     }
 
   }]);
