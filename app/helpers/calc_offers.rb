@@ -5,7 +5,8 @@
 
 helpers do
   def calculate_market_rate_difference(monthly_market_value, current_monthly_rent)
-    return monthly_market_value*24-current_monthly_rent*24 #gives the difference that will have to be covered
+    return (monthly_market_value-current_monthly_rent)*24
+    # ordinance requires that a landlord pays the difference between two years of rent on current market rate in an Ellis
   end
 
   def calculate_low_offer(args) #market_value, current_rent, offer_price
@@ -14,14 +15,12 @@ helpers do
       compensation_required = 50_000
     end
     return compensation_required
-    # current_rent
-    # offer_price
-    #calculate low offer is based on the two year, capped at $50,000. 
-
   end
 
   def calculate_high_offer
 
   end
+
+
 
 end
