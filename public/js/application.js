@@ -17,7 +17,7 @@ var setupMarkersInfo = function(offer) {
 
   offer.setIcon(L.icon({
      iconUrl: 'https://files.slack.com/files-pri/T03K5BHN8-F03K818AB/noun_1144.png',
-     iconSize: [15, 15],
+     iconSize: [20, 20],
      iconAnchor: [10, 15],
      popupAnchor: [0, -34]
    }));
