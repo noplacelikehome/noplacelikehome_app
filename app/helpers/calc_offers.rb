@@ -22,6 +22,31 @@ helpers do
     # According to http://priceonomics.com/how-much-should-a-landlord-pay-a-tenant-to-move/, a landlord misses out on 13.94% of a rental unit's value if it is occupied by tenants, not factoring in market value
   end
 
+  def calculate_ca_tax_impact(offer_price, income_level)
+    total_taxable = income_level + offer_price
+    if income_level > 1_000_000
+      return 0.133
+    elsif income_level > 508_500
+      return 0.123
+    elsif income_level > 305_100
+      return 0.113
+    elsif income_level > 254_250
+      return 0.103
+    elsif income_level > 49_774
+      return 0.093
+    elsif income_level > 39_384
+      return 0.08
+    elsif income_level > 28_371
+      return 0.06
+    elsif income_level > 17_976
+      return 0.04
+    elsif income_level > 7_582
+      return 0.02
+    else
+      return 0.01
+    end
+  end
+
 
 
 end
