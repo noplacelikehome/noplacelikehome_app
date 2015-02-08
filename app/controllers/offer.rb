@@ -10,6 +10,10 @@ get '/offer' do
   calculate_high_offer(address_data[:total_market_value]) }.to_json
 end
 
+get '/tax' do
+  calculate_total_after_taxes(25_000, 150_000).to_s
+end
+
 post '/occupants' do
   offer= Offer.find(session[:offer_id])
   # offer.update_attributes(children: false)

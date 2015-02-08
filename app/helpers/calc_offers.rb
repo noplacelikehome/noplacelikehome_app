@@ -47,6 +47,28 @@ helpers do
     end
   end
 
+  def calculate_fed_tax_impact(offer_price, income_level)
+    total_taxable = income_level + offer_price
+    if income_level > 406_751
+      return 0.396
+    elsif income_level > 405_101
+      return 0.35
+    elsif income_level > 186_351
+      return 0.33
+    elsif income_level > 89_351
+      return 0.28
+    elsif income_level > 36_901
+      return 0.25
+    elsif income_level > 9_076
+      return 0.15
+    else
+      return 0.10
+    end
+  end
 
+  def calculate_total_after_taxes(offer_price, income_level)
+    total_taxes = calculate_fed_tax_impact(offer_price, income_level) + calculate_ca_tax_impact(offer_price, income_level)
+    return offer_price - (total_taxes*offer_price)
+  end
 
 end
