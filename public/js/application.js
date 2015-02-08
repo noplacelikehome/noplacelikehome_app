@@ -1,16 +1,26 @@
 var setupMarkersInfo = function(offer) {
-console.log("hey from setupMarkersInfo")
-console.log(offer)
-// var prop = offer.properties;
+  console.log("hey from setupMarkersInfo")
 
-// var popup = '<h3>' + prop.address + '</h3>';
+  var prop = offer.feature.properties;
 
-offer.setIcon(L.icon({
-   iconUrl: 'http://www.eoc.org.hk/eoc/otherproject/eng/color/youthcorner/programmes/careerchallenge2010/image/annaWu.jpg',
-   iconSize: [35, 35],
-   iconAnchor: [17, 31],
-   popupAnchor: [0, -34]
- }));
+  var popup = '<h3>Offer Price: $' + prop.price + '</h3>';
+
+   popup += '<h4>Address: ' + prop.address + '</h4>';
+
+   // popup += '<p>Bedrooms: ' + prop.bedrooms + '</p>';
+
+  offer.bindPopup(popup);
+
+  offer.on('click', function(e) {
+    offer.openPopup();
+  })
+
+  offer.setIcon(L.icon({
+     iconUrl: 'https://files.slack.com/files-pri/T03K5BHN8-F03K818AB/noun_1144.png',
+     iconSize: [20, 20],
+     iconAnchor: [10, 15],
+     popupAnchor: [0, -34]
+   }));
 
 }
 
