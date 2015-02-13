@@ -7,4 +7,4 @@ Buyout offers - often inequitable - outmatch evictions 7 to 1. Designed to fix t
 #### Technologies
 Data from No Place Like Home is taken from the Zillow API. An interactive map based on the Mapbox API maps buyout data throughout the city for use by public officials and community organizations. Heroku deployment will be live by the end of the month. The app is built on a Sinatra backend with a Postgres database and a Angular frontend.
 
-Email jgerminario@gmail.com if you are interested in partnering on the release of No Place Like Home or contributing to app development.
+Email jgerminario@gmail.com if you are an organization interested in partnering on the release of No Place Like Home.
