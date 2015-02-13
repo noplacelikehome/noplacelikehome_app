@@ -1,30 +1,10 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+# No Place Like Home
+No Place Like Home is a web app for renters faced with buyout offers from their landlords. Using the latest data on property values and rent prices across the city of San Francisco, No Place Like Home gives tenants realistic estimates on how much they should get for their apartment and what they might expect to spend at an equivalent unit elsewhere in their neighborhood.
 
-### Purpose
-The Sinatra Skeleton:
+Buyout offers - often inequitable - outmatch evictions 7 to 1. Designed to fix the information imbalance between landlords and tenants, No Place Like Home is a step towards fixing some of the major housing issues San Francisco faces.
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
 
-### Quickstart
+#### Technologies
+Data from No Place Like Home is taken from the Zillow API. An interactive map based on the Mapbox API maps buyout data throughout the city for use by public officials and community organizations. Heroku deployment will be live by the end of the month. The app is built on a Sinatra backend with a Postgres database and a Angular frontend.
 
-1.  `bundle install`
-2.  `shotgun config.ru`
-
-As needed, create models & migrations with the `rake` tasks:
-
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
-
-### Contributing
-
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
-
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
-
-Be prepared to give and receive specific, actionable, and kind feedback!
+Email jgerminario@gmail.com if you are interested in partnering on the release of No Place Like Home or contributing to app development.
