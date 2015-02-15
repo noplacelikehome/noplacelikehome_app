@@ -15,6 +15,10 @@ require 'pg'
 require 'active_record'
 require 'logger'
 
+require 'geocoder'
+require "geocoder/railtie"
+Geocoder::Railtie.insert
+
 require 'sinatra'
 require "sinatra/reloader" if development?
 
