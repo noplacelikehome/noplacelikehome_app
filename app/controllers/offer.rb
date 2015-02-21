@@ -49,13 +49,15 @@ end
 
 # first page questionaire
 post '/api/get_eviction_status' do
+  params = JSON.parse(request.env["rack.input"].read)
+  puts params
   offer = Offer.find(session[:id])
-  update_offer = offer.update_attribute(fear_eviction: to_boolean(params[:eviction]))
-  if update_offer.fear_eviction
-    redirect "/api/get_eviction_info"
-  else
-    redirect "/api/months_lasts"
-  end
+  update_offer = offer.update_attributes(fear_eviction: to_boolean(params[:eviction]))
+  # if update_offer.fear_eviction
+  #   redirect "/api/get_eviction_info"
+  # else
+  #   redirect "/api/months_lasts"
+  # end
 end
 
 post '/api/get_eviction_info' do
