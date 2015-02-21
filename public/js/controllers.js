@@ -16,4 +16,15 @@ noPlaceLikeHome.controller("FormController", ["$scope", "$http", "$timeout",
 
     }
 
+    $scope.yesBuyOut = function() {
+      $http.post('/api/get_eviction_status', {eviction: true}).success(function(response){
+        console.log(response);
+        alert('yes u bought out');
+      })
+    }
+
+    $scope.noBuyOut = function() {
+      alert(formData);
+    }
+
   }]);
