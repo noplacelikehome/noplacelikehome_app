@@ -47,26 +47,35 @@ get '/taxes' do
 end
 
 
-# first page questionaire
-post '/api/get_eviction_status' do
+# first page questionaire - are you afraid of being evicted?
+post '/api/evictions' do
   params = JSON.parse(request.env["rack.input"].read)
-  puts params
   offer = Offer.find(session[:id])
-  update_offer = offer.update_attributes(fear_eviction: to_boolean(params[:eviction]))
-  # if update_offer.fear_eviction
-  #   redirect "/api/get_eviction_info"
-  # else
-  #   redirect "/api/months_lasts"
-  # end
+  update_offer = offer.update_attributes(fear_eviction: params[:eviction])
 end
 
-post '/api/get_eviction_info' do
+post '/api/summons' do
   offer = Offer.find(session[:id])
-  update_offer = offer.update_attributes(has_children: to_boolean(params[:children]), disabled: to_boolean(params[:disabled]), has_elderly: to_boolean(params[:elderly]))
-  redirect "/api/display_buyout_analysis"
+  update_offer = offer.update_attributes(summons: params[:summons])
 end
 
-post '/api/display_buyout_analysis' do
+post '/api/people' do
+  offer = Offer.find(session[:id])
+  update_offer = offer.update_attributes(has_children: params[:children], disabled: params[:disabled], has_elderly: params[:elderly])
+  # redirect "/api/display_buyout_analysis"
+end
+
+post '/api/neighbors' do
+  offer = Offer.find(session[:id])
+  update_offer = offer.update_attributes(other_apts_status: params[:other_apts_status])
+end
+
+post '/api/neighbor-people' do
+  offer = Offer.find(session[:id])
+  update_offer = offer.update_attributes(other_apts_children_elderly_disabled: params[:other_apts_status])
+end
+
+post '/api/resources' do
   @offer = Offer.find(session[:id])
   # then pass the offer complete details to render in the graphical analysis
 end
