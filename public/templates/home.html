@@ -2,30 +2,8 @@
 <img class="bg" src="/imgs/eviction.jpg">
   <h2>Facing a buy-out?</h2>
   <h4>Let's make sure you get what you deserve</h4>
-  <!-- <button ng-click="click()">click</button> -->
-<body class='sapUiBody'>
-    <div id='content'></div>
-
-    <mvc:View
-      xmlns:l="sap.ui.layout"
-      xmlns:mvc="sap.ui.core.mvc"
-      xmlns="sap.m">
-      <VBox
-        class="marginBoxContent" >
-        <items>
-
- <script>
-    var btn = new sap.ui.commons.Button({
-        text:"Let's find out",
-        press: function() {
-            window.location.href = "http://localhost:9393/#/form/address";
-        }
-    });
-    btn.placeAt('content');
-</script>
-
-        </items>
-      </VBox>
-    </mvc:View>
+  <form action="#/form/address">
+    <input type="submit" class="default-btn" value="Let's find out">
+</form>
 </body>
 </div>
