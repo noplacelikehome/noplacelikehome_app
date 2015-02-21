@@ -23,21 +23,39 @@ noPlaceLikeHome.config(function($stateProvider, $urlRouterProvider) {
       controller: "FormController"
     })
     .state('form.address', {
-      url: '/address',
-      templateUrl: 'templates/form-address.html'
-    })
-    // url will be /form/interests
-    .state('form.offer', {
-      url: '/offer',
-      templateUrl: 'templates/form-offer.html'
-    })
-    // url will be /form/payment
-    .state('form.eviction', {
-      url: '/eviction',
-      templateUrl: 'templates/form-eviction.html'
-    })
-    .state('form.resources', {
-      url: '/resources'.
-      templateUrl: 'templates/form-resources.html'
-    });
+            url: '/address',
+            templateUrl: 'templates/form-address.html'
+        })
+
+        // url will be /form/interests
+        .state('form.offer', {
+            url: '/offer',
+            templateUrl: 'templates/form-offer.html'
+        })
+
+        .state('form.summons', {
+            url: '/summons',
+            templateUrl: 'templates/evictions/form-summons.html'
+        })
+
+        .state('form.resources', {
+            url: '/resources',
+            templateUrl: 'templates/evictions/form-resources.html'
+        })
+
+        .state('form.people', {
+            url: '/people',
+            templateUrl: 'templates/evictions/form-people.html'
+        })
+
+        .state('form.neighbors', {
+            url: '/neighbors',
+            templateUrl: 'templates/evictions/form-neighbors.html'
+        })
+
+        .state('form.neighbor_people', {
+            url: '/neighbor_people',
+            templateUrl: 'templates/evictions/form-neighbor-people.html'
+        })
+
 });
