@@ -3,9 +3,13 @@ require 'json'
 post '/api/offer' do
   params = JSON.parse(request.env["rack.input"].read)
 
+  new_offer = Offer.create(price: params["offer_price"].to_i, street_address: params["street_address"], zip: params["zip"].to_i, bedrooms: params["no_bedrooms"])
+
   address_data = get_zillow_address_data(params["street_address"], params["zip"])
+  p address_data
+
+  total_after_taxes = calculate_total_after_taxes(params["offer_price"].to_i, params["yearly_income"].to_i)
   if address_data
-    new_offer = Offer.create(price: params["offer_price"].to_i, street_address: params["street_address"], zip: params["zip"].to_i, bedrooms: address_data["bedrooms"])
 
     session[:id] = new_offer.id
 
@@ -13,7 +17,6 @@ post '/api/offer' do
              monthly_market_value: address_data[:monthly_market_value],
              current_monthly_rent: params["current_monthly_rent"].to_i } #mmv comes from zillow, cmr & op from user
 
-    total_after_taxes = calculate_total_after_taxes(params["offer_price"].to_i, params["yearly_income"].to_i)
 
     difference_in_months = calculate_difference_in_months(total_after_taxes, address_data[:monthly_market_value], params["current_monthly_rent"].to_i).to_s
 
@@ -23,8 +26,20 @@ post '/api/offer' do
     calculate_high_offer(address_data[:total_market_value]), total_after_taxes: total_after_taxes, difference_in_months: difference_in_months.to_i }.to_json
 
   else
-    get_google_geocode_data(params["street_address"], params["zip"])
+
+    market_average_rent = get_google_geocode_data(params["street_address"], params["zip"], params["no_bedrooms"])
+
+    difference_in_months = calculate_difference_in_months(total_after_taxes, market_average_rent, params["current_monthly_rent"].to_i).to_s
+
+    if (market_average_rent - params["current_monthly_rent"].to_i)*24 > 50_000
+      low_offer = 50_000
+    else
+      low_offer = (market_average_rent - params["current_monthly_rent"].to_i)*24
+    end
     content_type :json
+
+    { low_offer: low_offer, high_offer:
+    "Sorry we do not have enough information for high offer estimate", total_after_taxes: total_after_taxes, difference_in_months: difference_in_months.to_i }.to_json
   end
 end
 # number of bedrooms can come from zillow
