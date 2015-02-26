@@ -22,12 +22,13 @@ helpers do
     string == 'true'
   end
 
-  def get_google_geocode_data(address, zipcode, bedrooms=1)
-    url = URI.encode("https://maps.googleapis.com/maps/api/geocode/json?address=#{address},+San+Francisco,+CA&key=AIzaSyAjHHSncwoJonXl2XhLumPwnnO5a964cv0")
+  def get_google_geocode_data(address, zipcode, bedrooms)
+    url = URI.encode("https://maps.googleapis.com/maps/api/geocode/json?address=#{address},+San+Francisco,+CA&key=AIzaSyCsUnnbPXOHFnO1BmsSMlNxuGYFz-UUOJ8")
     response = HTTParty.get(url)
     p response
     neighborhood = response["results"][0]["address_components"][2]["long_name"]
-    average_neighborhood_price(neighborhood, bedrooms)
+    p neighborhood
+    p average_neighborhood_price(neighborhood, bedrooms.to_i)
   end
 
   def average_neighborhood_price(neighborhood, bedrooms)
@@ -70,7 +71,7 @@ helpers do
       "West Portal" => {0 => 2100, 1 => 2100, 2=> 2748, 3 => 4975},
       "Western Addition" => {0 => 1725, 1 => 2400, 2=> 3450, 3 => 3950}
     }
-    neighborhoods[neighborhood][bedrooms]
+    p neighborhoods[neighborhood][bedrooms]
   end
 
 
