@@ -24,14 +24,14 @@ overall value of the building.</td>
 
 <h2>Are you afraid of being evicted?</h2>
 
-<button ng-click="yesEviction()"class="btn btn-block btn-info">
+<div class="center">
+<button ng-click="eviction(true)" ui-sref="form.summons" class="btn btn-block btn-info two">
     yes
 </button>
-<button ng-click="noEviction()"class="btn btn-block btn-info">
+<button ng-click="eviction(false)" ui-sref="form.resources" class="btn btn-block btn-info two">
     no
-
 </button>
-
+</div>
 </div>
 
   <!-- <p> low offer:  highoffer: {{recommendedOffer.high_offer}} totalafter: {{recommendedOffer.total_after_taxes}}, difference_in_months: {{recommendedOffer.difference_in_months}} </p> -->

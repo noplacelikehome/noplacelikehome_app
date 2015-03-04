@@ -1,13 +1,18 @@
 require 'json'
 
+# TODO: for some reason this doesn't work on the /api/offer route, disabling
+# before '/api/*' do
+#   params = JSON.parse(request.env["rack.input"].read)
+# end
+
 post '/api/offer' do
   params = JSON.parse(request.env["rack.input"].read)
-
+  p "test2"
   address_data = get_zillow_address_data(params["street_address"], params["zip"])
   if address_data
     new_offer = Offer.create(price: params["offer_price"].to_i, street_address: params["street_address"], zip: params["zip"].to_i, bedrooms: address_data["bedrooms"])
 
-    session[:id] = new_offer.id
+    p session[:id] = new_offer.id
 
     args = { offer_price: params["offer_price"].to_i,
              monthly_market_value: address_data[:monthly_market_value],
@@ -29,6 +34,7 @@ post '/api/offer' do
 end
 # number of bedrooms can come from zillow
 
+# TESTING PURPOSES ONLY
 get '/address_data' do
   content_type :json
   get_zillow_address_data("725 Leavenworth", "94110").to_json
@@ -50,16 +56,19 @@ end
 # first page questionaire - are you afraid of being evicted?
 post '/api/evictions' do
   params = JSON.parse(request.env["rack.input"].read)
+  session[:id]
   offer = Offer.find(session[:id])
   update_offer = offer.update_attributes(fear_eviction: params[:eviction])
 end
 
 post '/api/summons' do
+  params = JSON.parse(request.env["rack.input"].read)
   offer = Offer.find(session[:id])
   update_offer = offer.update_attributes(summons: params[:summons])
 end
 
 post '/api/people' do
+  params = JSON.parse(request.env["rack.input"].read)
   offer = Offer.find(session[:id])
   update_offer = offer.update_attributes(has_children: params[:children], disabled: params[:disabled], has_elderly: params[:elderly])
   # redirect "/api/display_buyout_analysis"

@@ -17,19 +17,13 @@ noPlaceLikeHome.controller("FormController", ["$scope", "$http", "$timeout",
     }
 
     $scope.eviction = function(evictionBool) {
-      $http.post('/api/evictions/', {eviction: evictionBool}).success(function(response){
+      $http.post('/api/evictions', {eviction: evictionBool}).success(function(response){
         console.log('bought out');
-      })
-    }
-
-    $scope.noEviction = function() {
-      $http.post('/api/evictions/', {eviction: false}).success(function(response){
-        console.log('not bought out')
-      })
-    }
+      });
+    };
 
     $scope.summons = function(summonsBool) {
-      $http.post('/api/summons/', {summons: summonsBool}).success(function(response){
+      $http.post('/api/summons', {summons: summonsBool}).success(function(response){
         console.log(response);
         alert('no u bought out');
       })
