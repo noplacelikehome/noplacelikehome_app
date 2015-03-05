@@ -22,15 +22,34 @@ helpers do
     string == 'true'
   end
 
-  def get_google_geocode_data(address, zipcode, bedrooms=1)
-    url = URI.encode("https://maps.googleapis.com/maps/api/geocode/json?address=#{address},+San+Francisco,+CA&key=AIzaSyAjHHSncwoJonXl2XhLumPwnnO5a964cv0")
+  def get_google_geocode_data(address, zipcode, bedrooms)
+    url = URI.encode("https://maps.googleapis.com/maps/api/geocode/json?address=#{address},+San+Francisco,+CA&key=#{ENV["NPLH_GOOGLE_MAPS"]}")
     response = HTTParty.get(url)
-    p response
     neighborhood = response["results"][0]["address_components"][2]["long_name"]
-    average_neighborhood_price(neighborhood, bedrooms)
+    neighborhood == "Mission District" ? z_neighborhood = "Mission" : z_neighborhood = neighborhood
+    total_market_value = zillow_market_value_lookup(neighborhood, bedrooms)
+    return {monthly_market_value: average_neighborhood_price(neighborhood, bedrooms), total_market_value: total_market_value, bedrooms: bedrooms}
   end
 
+  def zillow_market_value_lookup(neighborhood, bedrooms)
+    response = HTTParty.get("http://www.zillow.com/webservice/GetDemographics.htm?zws-id=X1-ZWz1az0o6cmnm3_8b748&state=CA&city=San+Francisco&neighborhood=#{URI.encode(neighborhood)}")
+    # pp response
+    if response["demographics"]["response"]
+      data = response["demographics"]["response"]["pages"]["page"][0]["tables"]["table"]["data"]["attribute"][bedrooms+1]["values"]
+      if data["neighborhood"]
+        market_value = data["neighborhood"]["value"]["__content__"]
+      else
+        market_value = data["city"]["value"]["__content__"]
+      end
+      return market_value
+    else
+      return 0
+    end
+  end
+
+
   def average_neighborhood_price(neighborhood, bedrooms)
+    # http://www.zillow.com/webservice/GetDemographics.htm?zws-id=X1-ZWz1az0o6cmnm3_8b748&state=CA&city=San+Francisco&neighborhood=Richmond //TODO: programmatically get home values in neighborhood
 
     neighborhoods = {
       "Alamo Square" => { 0 => 2295, 1 => 2995, 2 => 2975, 3 => 5940 },

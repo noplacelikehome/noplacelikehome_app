@@ -1,47 +1,62 @@
 <div class="center">
-  <h3>Based on your info, you can ask for:</h3>
   <table>
     <tr>
       <th></th>
-      <th>At least: {{recommendedOffer.low_offer | currency}}</th>
-      <th>Up to: {{recommendedOffer.high_offer | currency}}</th>
+      <th><h3 class="offer-info">Current offer:</h3></th>
+      <th colspan="2"><h3 class="offer-info">Based on your info, you can ask for:</h3></th>
+    <tr>
+      <th class="outer_col"></th>
+      <th class="inner_col"><span>&nbsp;</span> 
+        <h4>{{recommendedOffer.original_offer | currency}}</h4></th>
+      <th class="inner_col"><span>At least:</span> 
+        <h4>{{recommendedOffer.low_offer | currency}}</h4></th>
+      <th class="inner_col">
+        <span>Up to:</span> 
+        <h4 ng-if="recommendedOffer.high_offer == 0">No data for your property</h4>
+        <h4 ng-if="recommendedOffer.high_offer != 0">{{recommendedOffer.high_offer | currency}}</h4>
+      </th>
     </tr>
     <tr>
-      <td>About this price:</td>
-      <td>Based on the latest Ellis Act legislation,
-you must be paid the difference between
-your current rent and the going rate for a
-similar unit for 2 years.</td>
-      <td>This is what the landlord would
-likely be willing to pay, given the
-overall value of the building.</td>
+      <td class="outer_col">About this price:</td>
+      <td class="inner_col table_expl">Your original offer price</td>
+      <td class="inner_col table_expl">An upcoming law will guarantee you enough to cover rent in a similar unit for two years if you are evicted<span ng-if="recommendedOffer.low_offer == 50000"> ($50,000 cap)</span>.</td>
+      <td class="inner_col table_expl">This is the most the landlord may make if you leave your apartment.</td>
+    </tr>
+    <tr>
+      <td class="outer_col">What it's worth after taxes:</td>
+      <td class="inner_col">{{recommendedOffer.orig_total_after_taxes |currency}}</td>
+      <td class="inner_col">{{recommendedOffer.low_total_after_taxes |currency}}</td>
+      <td class="inner_col">{{recommendedOffer.high_total_after_taxes |currency}}</td>
+    </tr>
+    <tr>
+      <td class="outer_col">How long it will cover rent in your neighborhood:</td>
+      <td class="inner_col">{{recommendedOffer.orig_difference_in_months}} months</td>
+      <td class="inner_col">{{recommendedOffer.low_difference_in_months}} months</td>
+      <td class="inner_col">{{recommendedOffer.high_difference_in_months}} months</td>
     </tr>
   </table>
 </div>
-<div class="wrapper">
-<h6>What you would get after taxes with the original offer: <strong>{{recommendedOffer.total_after_taxes |currency}}</strong></h6>
-<h6># months you can afford at a similar home with the original offer: <strong>{{recommendedOffer.difference_in_months}}</strong></h6>
 
-<h2>Are you afraid of being evicted?</h2>
+          <div class="btm-margin center">
+            <h4>Are you afraid of being evicted?</h4>
 
-<button ng-click="yesEviction()"class="btn btn-block btn-info">
-    yes
-</button>
-<button ng-click="noEviction()"class="btn btn-block btn-info">
-    no
+            <button ng-click="eviction(true)" ui-sref="form.summons" class="btn btn-block btn-info two">
+              yes
+            </button>
+            <button ng-click="eviction(false)" ui-sref="form.resources" class="btn btn-block btn-info two">
+              no
+            </button>
+          </div>
+        </div>
 
-</button>
-
-</div>
-
-  <!-- <p> low offer:  highoffer: {{recommendedOffer.high_offer}} totalafter: {{recommendedOffer.total_after_taxes}}, difference_in_months: {{recommendedOffer.difference_in_months}} </p> -->
-  <!-- <h1> offer </h1> -->
+        <!-- <p> low offer:  highoffer: {{recommendedOffer.high_offer}} totalafter: {{recommendedOffer.total_after_taxes}}, difference_in_months: {{recommendedOffer.difference_in_months}} </p> -->
+        <!-- <h1> offer </h1> -->
 
 
-<div class="form-group row">
-<div class="col-xs-6 col-xs-offset-3">
-    <!-- <a ui-sref="form.eviction" class="btn btn-block btn-info"> -->
-    <!-- Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span> -->
-    </a>
-</div>
-</div>
+        <div class="form-group row">
+          <div class="col-xs-6 col-xs-offset-3">
+            <!-- <a ui-sref="form.eviction" class="btn btn-block btn-info"> -->
+            <!-- Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span> -->
+          </a>
+        </div>
+      </div>
