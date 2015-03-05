@@ -28,7 +28,7 @@ helpers do
     neighborhood = response["results"][0]["address_components"][2]["long_name"]
     neighborhood == "Mission District" ? z_neighborhood = "Mission" : z_neighborhood = neighborhood
     total_market_value = zillow_market_value_lookup(neighborhood, bedrooms)
-    return {monthly_market_value: average_neighborhood_price(neighborhood, bedrooms), total_market_value: total_market_value, bedrooms: bedrooms}
+    return {monthly_market_value: average_neighborhood_price(neighborhood, bedrooms).to_i, total_market_value: total_market_value.to_i, bedrooms: bedrooms.to_i}
   end
 
   def zillow_market_value_lookup(neighborhood, bedrooms)
@@ -56,6 +56,7 @@ helpers do
       "Bayview" => { 0 => 1425, 1 => 1425, 2 => 2650, 3 => 3500 },
       "Bernal Heights" => { 0 => 3390, 1 => 3390, 2 => 3525, 3 => 4900 },
       "Castro" => { 0 => 1900, 1 => 3498, 2 => 4200, 3 => 6250 },
+      "Central Richmond" => {0 => 1600, 1 => 1995, 2=> 2995, 3 => 3995},
       "Civic Center" => { 0 => 2248, 1 => 3400, 2 => 4998, 3 => 4500 },
       "Cole Valley" => { 0 => 1988, 1 => 2700, 2 => 4150, 3 => 6500 },
       "Excelsior" => { 0 => 1825, 1 => 1825, 2 => 2550, 3 => 3200 },

@@ -23,7 +23,8 @@ helpers do
   end
 
   def calculate_ca_tax_impact(offer_price, income_level)
-    total_taxable = income_level + offer_price
+    income_level = income_level.to_i
+    total_taxable = income_level + offer_price.to_i
     if income_level > 1_000_000
       return 0.133
     elsif income_level > 508_500
@@ -48,7 +49,8 @@ helpers do
   end
 
   def calculate_fed_tax_impact(offer_price, income_level)
-    total_taxable = income_level + offer_price
+    income_level = income_level.to_i
+    total_taxable = income_level + offer_price.to_i
     if income_level > 406_751
       return 0.396
     elsif income_level > 405_101
@@ -68,7 +70,7 @@ helpers do
 
   def calculate_total_after_taxes(offer_price, income_level)
     total_taxes = calculate_fed_tax_impact(offer_price, income_level) + calculate_ca_tax_impact(offer_price, income_level)
-    return offer_price - (total_taxes*offer_price)
+    return offer_price.to_i - (total_taxes*offer_price.to_i)
   end
 
   def calculate_difference_in_months(total_after_taxes, monthly_market_value, current_monthly_rent)
