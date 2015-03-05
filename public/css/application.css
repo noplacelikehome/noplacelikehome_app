@@ -1,3 +1,5 @@
+/* Common elements */
+
 body {
   color: #FFF;
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -25,7 +27,7 @@ img.bg {
 }
 
 .bg-opacity {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -33,6 +35,179 @@ img.bg {
   height: 100%;
   z-index:-1;
 }
+
+
+h1 {
+  margin-top: 80px;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+  margin-bottom: 50px;
+  font-size: 3.5em;
+}
+
+h3 {
+  font-family: HelveticaNeue-Light;
+  font-size: 2.6em;
+  color: #262C26;
+  line-height: 51px;
+  margin-top: 20px;
+}
+
+h4 {
+  font-weight: 400;
+  margin-bottom:10px;
+  font-family: "HelveticaNeue-Light";
+  font-size: 2.4em;
+  color: #FFFFFF;
+  line-height: 1.5;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+h5 {
+  font-family: "HelveticaNeue-Bold";
+  font-size: 1.5em;
+  /*color: #FFFFFF;*/
+  line-height: 1.9;
+  /* Your buyout & rent:: */
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* Home */
+.home-title {
+  margin: 100px 0 100px;
+}
+
+/* Top bar elements */
+.logo {
+  width: 100%;
+  background-color: #FFF;
+}
+
+.logo img {
+  max-width:40%;
+  margin-left: 2.5%;
+  margin-top: 10px;
+}
+
+/* Button elements */
+
+.default-btn, input[type="submit"], .btn-info
+{
+  font-family: 'Helvetica Neue';
+  color: white;
+  font-size: 1.4em;
+  padding-right: 3%;
+  padding-left: 3%;
+  padding: 0 30px;
+  height: 45px;
+  background: #006CB2;
+  border: 0px solid rgba(0,0,0,0.0);
+}
+
+.default-btn, input[type="submit"]:hover, .btn-info:hover
+{
+  color: #006CB2;;
+  background: #fff;
+}
+
+.two {
+  display: inline-block;
+  margin: 0 40px 0;
+}
+
+.btn-info {
+  color: white;
+  /*margin: 0 auto !important;*/
+  margin-top: 20px;
+}
+.btn-right {
+  margin-right: 15%;
+  position: absolute;
+  right:0;
+}
+
+/* Form pages */
+.form-group {
+  text-align: right;
+  max-width: 600px;
+  width: 70%;
+}
+
+.questions {
+  margin-left: 10%;
+}
+
+label {
+  display: inline-block;
+  padding-right: 10px;
+  font-weight: normal;
+}
+input[type="text"] {
+  color: #000;
+  border-radius: 0px;
+  text-align: right;
+}
+
+/* Offer table */
+
+table {
+  width:100%;
+}
+
+td {
+  padding: 30px 20px;
+  text-align: center;
+  font-family: "HelveticaNeue-Light";
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+th {
+  text-align: center;
+}
+
+th span, .outer_col {
+  text-align: left;
+  font-family: HelveticaNeue-Bold;
+  font-size: 1.1em;
+  color: #FFFFFF;
+  line-height: 23px;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+.inner_col {
+  border-bottom: 1px solid #FFA11C;
+  width: 25%;
+}
+.outer_col {
+  width: 15%;
+}
+.offer-info {
+  text-align: center;
+}
+.btm-margin {
+  margin-top: 80px;
+}
+
+.table_expl {
+  font-size: 1.0em;
+}
+
+/* Map */
 
 #map {
   height: 100%;
@@ -55,7 +230,6 @@ img.bg {
   position: relative;
 }
 
-
 .back {
   position: absolute;
   top: 10px;
@@ -64,121 +238,6 @@ img.bg {
   z-index: 5 !important;
 }
 
-
-h2 {
-  margin-top: 80px;
-  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
-  margin-bottom: 50px;
-  font-size: 3.5em;
-}
-
-h3 {
-  font-family: HelveticaNeue-Light;
-  font-size: 2.6em;
-  color: #262C26;
-  line-height: 51px;
-  margin-top: 20px;
-}
-
-h4 {
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-
-h5 {
-  font-family: "HelveticaNeue-Bold";
-  font-size: 1.5em;
-  /*color: #FFFFFF;*/
-  line-height: 1.9;
-  /* Your buyout & rent:: */
-  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
-  margin-top: 20px;
-  margin-bottom: 10px;
-
-}
-
-
-.center {
-  text-align: center;
-  margin: 0 auto;
-  width: 95%;
-}
-
-.wrapper {
-  width: 95%;
-  margin: 0 auto;
-}
-.logo {
-  width: 100%;
-  background-color: #FFF;
-}
-
-.logo img {
-  max-width:40%;
-  margin-left: 2.5%;
-  margin-top: 10px;
-}
-
-.form-group {
-  text-align: right;
-  max-width: 600px;
-  width: 70%;
-}
-
-.questions {
-  margin-left: 10%;
-}
-
-.default-btn, input[type="submit"], .btn-info
-{
-  font-family: 'Helvetica Neue';
-  color: white;
-  font-size: 1.4em;
-  padding-right: 3%;
-  padding-left: 3%;
-  padding: 0 30px;
-  height: 45px;
-  background: #006CB2;
-  border: 0px solid rgba(0,0,0,0.0);
-}
-
-.default-btn, input[type="submit"]:hover, .btn-info:hover
-{
-  color: #006CB2;;
-  background: #fff;
-}
-label {
-  font-weight: normal;
-}
-
-.two {
-  display: inline-block;
-  margin: 0 40px 0;
-}
-
-.btn-info {
-  color: white;
-  /*margin: 0 auto !important;*/
-  position: absolute;
-  right:0;
-  margin-top: 20px;
-  margin-right: 15%;
-  text-align: right;
-}
-
-label {
-  display: inline-block;
-  padding-right: 10px;
-}
-input[type="text"] {
-  color: #000;
-  border-radius: 0px;
-}
-
-td {
-  font-size: .75em !important;
-}
 
 @media (min-width: 400px) {
     .logo img {
