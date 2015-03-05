@@ -23,17 +23,17 @@ helpers do
   end
 
   def get_google_geocode_data(address, zipcode, bedrooms)
+    bedrooms = bedrooms.to_i
     url = URI.encode("https://maps.googleapis.com/maps/api/geocode/json?address=#{address},+San+Francisco,+CA&key=#{ENV["NPLH_GOOGLE_MAPS"]}")
     response = HTTParty.get(url)
     neighborhood = response["results"][0]["address_components"][2]["long_name"]
     neighborhood == "Mission District" ? z_neighborhood = "Mission" : z_neighborhood = neighborhood
-    total_market_value = zillow_market_value_lookup(neighborhood, bedrooms)
-    return {monthly_market_value: average_neighborhood_price(neighborhood, bedrooms).to_i, total_market_value: total_market_value.to_i, bedrooms: bedrooms.to_i}
+    total_market_value = zillow_market_value_lookup(z_neighborhood, bedrooms)
+    return {monthly_market_value: average_neighborhood_price(neighborhood, bedrooms).to_i, total_market_value: total_market_value.to_i, bedrooms: bedrooms}
   end
 
   def zillow_market_value_lookup(neighborhood, bedrooms)
     response = HTTParty.get("http://www.zillow.com/webservice/GetDemographics.htm?zws-id=X1-ZWz1az0o6cmnm3_8b748&state=CA&city=San+Francisco&neighborhood=#{URI.encode(neighborhood)}")
-    # pp response
     if response["demographics"]["response"]
       data = response["demographics"]["response"]["pages"]["page"][0]["tables"]["table"]["data"]["attribute"][bedrooms+1]["values"]
       if data["neighborhood"]
