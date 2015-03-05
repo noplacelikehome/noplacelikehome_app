@@ -14,7 +14,7 @@ helpers do
     if compensation_required > 50_000
       compensation_required = 50_000
     end
-    return compensation_required
+    return compensation_required.to_i
   end
 
   def calculate_high_offer(total_market_value)
