@@ -1,10 +1,10 @@
-# No Place Like Home
+# [No Place Like Home](http://www.noplacelikehome.co)
 
-<p align="center">
-<img src="imgs/noplace.png" alt="No Place Like Home logo"/>
+<p align="center"><a href="http://www.noplacelikehome.co">
+<img src="imgs/noplace.png" alt="No Place Like Home logo"/></a>
 </p>
 
-*Upstarter is still under development. Please see Known Issues section if you experience problems with the demo*
+*Upstarter is still under beta development and will be released publicly in the coming weeks.*
 
 [No Place Like Home](http://www.noplacelikehome.co) is a web app for renters faced with buyout offers from their landlords. You can view it live at [http://www.noplacelikehome.co](http://www.noplacelikehome.co).
 
@@ -52,10 +52,8 @@ Also included in No Place Like Home is a map that reports where buyouts are happ
 * Sinatra - backend framework
 * Skeleton - CSS library
 
-## Known issues
-* The buyout lookup is limited to addresses contained in the Zillow API, which is not comprehensive. Alternative methods are being explored to allow full address coverage.
-
-* Latency issue with button on form takes several seconds to load results page without user feedback.
+## Known issues + planned improvements
+* Will soon add questions around eviction risk and resources for responding to buyout offers or eviction threats.
 
 ## History
 No Place Like Home was developed during the Accelerate 2015 hackathon in San Francisco, winning 3rd place overall. It remains in development to address remaining issues before full public release for renters' use.
