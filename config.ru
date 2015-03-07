@@ -10,4 +10,6 @@ get "/" do
   File.read("public/index.html")
 end
 
+use ActiveRecord::ConnectionAdapters::ConnectionManagement
+
 run Sinatra::Application
