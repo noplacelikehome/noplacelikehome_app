@@ -4,7 +4,7 @@
 <img src="imgs/noplace.png" alt="No Place Like Home logo"/></a>
 </p>
 
-*Upstarter is still under beta development and will be released publicly in the coming weeks.*
+*No Place Like Home is still under beta development and will be released publicly in the coming weeks.*
 
 [No Place Like Home](http://www.noplacelikehome.co) is a web app for renters faced with buyout offers from their landlords. You can view it live at [http://www.noplacelikehome.co](http://www.noplacelikehome.co).
 
